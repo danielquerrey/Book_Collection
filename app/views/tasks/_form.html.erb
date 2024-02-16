@@ -1,0 +1,32 @@
+<table summary="Task form fields">
+  <tr>
+    <th>Book</th>
+    <td><%= f.text_field(:name) %></td>
+  </tr>
+  <%
+=begin%>
+ <tr>
+    <th>Author</th>
+    <td><%= f.text_field(:position) %></td>
+  </tr> 
+<%
+=end%>
+  <tr>
+    <th>Price ($)</th>
+    <td><%= f.text_field :price, step: '0.01' %></td>
+  </tr>
+
+ <%
+=begin%>
+ <tr>
+    <th>Price</th>
+    <td><%= f.check_box(:completed) %></td>
+  </tr> 
+
+  <tr> 
+<%
+=end%>
+    <th>Author</th>
+    <td><%= f.text_area(:description) %></td>
+  </tr>
+</table>

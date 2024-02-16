@@ -1,0 +1,60 @@
+<%
+=begin%>
+ <%= link_to('Back to Homepage', {controller: 'main', action: 'index'}) %><br /> 
+<%
+=end%>
+
+<div class="tasks index">
+  <h2>Books</h2>
+
+  <%= link_to("Add New Book", new_task_path, class: 'action new') %>
+
+  <table class="listing" summary="Task list" style="width: 100%;">
+    <tr class="header">
+      <th>#</th>
+      <%
+=begin%>
+ <th>Book(Task)</th>
+      <th>Author(Completed)</th>
+      <th>Price(Category)</th>
+      <th>Published Date(Actions)</th> 
+<%
+=end%>
+      <th>Book</th>
+      <th>Author</th>
+      <th>Price</th>
+      <th>Published Date</th>
+    </tr>
+    <% @tasks.each do |task| %>
+    <tr>
+      <td><%= task.position %></td>
+      <td><%= task.name %></td>
+      <td><%= task.description %></td>
+      <td><%= task.price %></td>
+
+
+      <td><%= task.created_at %></td>
+
+
+ <%
+=begin%>
+ <td><%= task.category %></td>  
+<%
+=end%>
+
+      <td class="actions">
+        <%= link_to("Show", task_path(task), class: 'action show') %>
+        <%= link_to("Edit", edit_task_path(task), class: 'action edit') %>
+        <%= link_to("Delete", delete_task_path(task), class: 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+
+  <h3> Flash Messages show up here </h3>
+  <% flash.each do |type, message| %>
+    <div class="<%= type %>">
+      <%= message %>
+    </div>
+  <% end %>
+</div>

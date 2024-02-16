@@ -1,0 +1,39 @@
+<%= link_to("Back to Books", tasks_path, class: 'back-link') %>
+
+<div class="tasks show">
+  <h2>Show Book</h2>
+
+  <div class="actions">
+    <%= link_to('Edit', edit_task_path(@task)) %>
+    <%= link_to('Delete', delete_task_path(@task)) %>
+  </div>
+
+  <table summary="Task detail view">
+    <tr>
+      <th>Name</th>
+      <td><%= @task.name %></td>
+    </tr>
+    <tr>
+      <th>Position</th>
+      <td><%= @task.position %></td>
+    </tr>
+    <tr>
+      <th>Price ($)</th>
+      <td><%=@task.price %></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><%= @task.description %></td>
+    </tr>
+    
+    <tr>
+      <th>Created</th>
+      <td><%= @task.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @task.updated_at %></td>
+    </tr>
+  </table>
+
+</div>
