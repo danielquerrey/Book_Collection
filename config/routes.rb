@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   get 'main/index'
 
+  resources :user_books
+  resources :users
+  
+
   resources :categories do
     member do
       get :delete
