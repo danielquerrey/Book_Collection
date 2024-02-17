@@ -6,26 +6,26 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
-    # flash[:notice] = 'Book was successfully viewed.'
+    flash[:notice] = 'Book was successfully viewed.'
 
   end
 
   def new
-    # @count = Task.count
-    # @task = Task.new(position: @count + 1)
+    @count = Task.count
+    @task = Task.new(position: @count + 1)
   end
 
   def create
-    # @task = Task.new(task_params)
-    # if @task.save
-    #   flash[:notice] = 'Book was successfully created.'
-    #   redirect_to tasks_path
-    # else
-    #   # The 'new' action is NOT being called here
-    #   # Assign any instance variables needed
-    #   # @count = Task.count
-    #   render('new')
-    # end
+    @task = Task.new(task_params)
+    if @task.save
+      flash[:notice] = 'Book was successfully created.'
+      redirect_to tasks_path
+    else
+      # The 'new' action is NOT being called here
+      # Assign any instance variables needed
+      # @count = Task.count
+      render('new')
+    end
   end
 
   def edit

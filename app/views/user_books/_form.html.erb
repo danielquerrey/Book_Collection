@@ -13,13 +13,12 @@
 
   <div>
     <%= form.label :user_id, style: "display: block" %>
-    <%= form.number_field :user_id %>
-  </div>
+<%= form.select :user_id, User.order(:username).map { |user| [user.username, user.id] }, include_blank: true, id: "id_of_the_user_id_select_box" %>
+</div>
 
   <div>
     <%= form.label :book_id, style: "display: block" %>
-    <%= form.number_field :book_id %>
-  </div>
+<%= form.select :book_id, Task.order(:name).map { |task| [task.name, task.id] }, include_blank: true, id: "id_of_the_book_id_select_box" %>  </div>
 
   <div>
     <%= form.submit %>

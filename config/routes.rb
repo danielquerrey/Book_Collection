@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :user_books
   resources :users
   # root 'main#index'
-  root 'tasks#index'
+  root 'user_books#index'
 
   match 'about', to: "main#about", via: :get
   match 'hello', to: "main#hello", via: :get
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :user_books
   resources :users
-  
+
 
   resources :categories do
     member do
